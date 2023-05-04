@@ -9,13 +9,13 @@
 script = ExtResource("1_8e5nw")
 
 [node name="Pivot" type="Node2D" parent="."]
-position = Vector2(204, 152)
 scale = Vector2(1.6, 1.6)
 script = ExtResource("2_xshkw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 z_index = -1
 texture = ExtResource("3_fe2ck")
+centered = false
 
 [node name="Watcher" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(10, 10)

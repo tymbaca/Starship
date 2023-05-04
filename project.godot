@@ -18,13 +18,13 @@ config/icon="res://images/icon.png"
 [autoload]
 
 Level="*res://scenes/Level/Level.gd"
+Settings="*res://scenes/Settings.gd"
 
 [display]
 
 window/size/viewport_width=400
 window/size/viewport_height=300
 window/stretch/mode="viewport"
-window/dpi/allow_hidpi=false
 
 [dotnet]
 

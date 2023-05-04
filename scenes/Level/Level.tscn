@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ctd8spq2mo1d5"]
 
 [ext_resource type="Script" path="res://scenes/Level/Level.gd" id="1_e83f4"]
-[ext_resource type="Texture2D" uid="uid://dk38tbyjyyhqi" path="res://images/Background.png" id="2_tq2iv"]
+[ext_resource type="PackedScene" uid="uid://gsbj45asrm3d" path="res://scenes/Background/background.tscn" id="2_gqkdp"]
 [ext_resource type="PackedScene" uid="uid://6b4t2tn2auii" path="res://scenes/Ship/Ship.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://dhgvy0gslmkki" path="res://scenes/Player/player.tscn" id="4_m28ui"]
 
@@ -17,11 +17,8 @@ b = Vector2(-1.01808, 451)
 [node name="Level" type="Node2D" groups=["Level"]]
 script = ExtResource("1_e83f4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(204, 152)
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("2_tq2iv")
+[node name="Background" parent="." instance=ExtResource("2_gqkdp")]
+position = Vector2(-4, -19)
 
 [node name="EnemySpawnPath" type="Path2D" parent="."]
 position = Vector2(11, -92)

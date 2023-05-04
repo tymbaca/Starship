@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://ryxih3n45dht"]
+
+[ext_resource type="PackedScene" uid="uid://ohoo7bijbp2j" path="res://scenes/Effect/HitEffect.tscn" id="1_lv2q7"]
+[ext_resource type="Texture2D" uid="uid://cif3qgjqykfee" path="res://images/Bullet.png" id="2_b5l5c"]
+
+[sub_resource type="GDScript" id="GDScript_lbfq4"]
+script/source = "class_name Bullet
+extends CharacterBody2D
+
+
+@export var hit_effect_scene: PackedScene
+
+@export var speed = 100
+@export var damage = 1
+#@onready var collision_shape = $CollisionShape2D
+
+func _ready():
+	set_as_top_level(true)
+
+func _process(delta):
+	var collision: KinematicCollision2D = move_and_collide(Vector2.UP.rotated(global_rotation) * speed * delta)
+	if not collision == null:
+		emit_hit_effect(collision)
+		do_damage(collision)
+		queue_free()
+		
+	
+func emit_hit_effect(collision: KinematicCollision2D):
+	var effect: Effect = hit_effect_scene.instantiate()
+	var global_rotation_vector: Vector2 = Vector2.RIGHT.rotated(global_rotation)
+	effect.global_position = global_position
+	effect.global_rotation = get_reflect_vector(global_rotation_vector, collision.get_normal()).angle() + PI/2
+	Level.node.add_child(effect)
+	print(rad_to_deg(effect.global_rotation), \" / \", effect.global_rotation_degrees, \" / \", effect.global_rotation)
+
+func get_reflect_vector(initial: Vector2, normal: Vector2):
+	normal = normal.normalized()
+	var dot_product = (initial.x * normal.x) + (initial.y * normal.y)
+	var result = initial - 2 * dot_product * normal
+	return result
+
+func do_damage(collision: KinematicCollision2D):
+	var hitted_ship: CharacterBody2D = collision.get_collider()
+	hitted_ship.health -= damage
+"
+
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 0.0
+height = 0.0
+
+[node name="Bullet" type="CharacterBody2D"]
+script = SubResource("GDScript_lbfq4")
+hit_effect_scene = ExtResource("1_lv2q7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 5.96046e-08)
+texture = ExtResource("2_b5l5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("1")

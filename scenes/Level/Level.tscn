@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctd8spq2mo1d5"]
+
+[ext_resource type="Script" path="res://scenes/Level/Level.gd" id="1_e83f4"]
+[ext_resource type="Texture2D" uid="uid://dk38tbyjyyhqi" path="res://images/Background.png" id="2_tq2iv"]
+[ext_resource type="PackedScene" uid="uid://6b4t2tn2auii" path="res://scenes/Ship/Ship.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dhgvy0gslmkki" path="res://scenes/Player/player.tscn" id="4_m28ui"]
+
+[sub_resource type="Curve2D" id="1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 9.86106, 26.3962, 0, 0, -124.853, 45.1702, 362.344, 68.6043)
+}
+point_count = 2
+
+[sub_resource type="SegmentShape2D" id="2"]
+b = Vector2(-1.01808, 451)
+
+[node name="Level" type="Node2D" groups=["Level"]]
+script = ExtResource("1_e83f4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(204, 152)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_tq2iv")
+
+[node name="EnemySpawnPath" type="Path2D" parent="."]
+position = Vector2(11, -92)
+rotation = -0.121995
+curve = SubResource("1")
+
+[node name="EnemySpawner" type="PathFollow2D" parent="EnemySpawnPath"]
+position = Vector2(9.86106, 26.3962)
+rotation = 0.119178
+
+[node name="EnemyMoveLimit" type="Area2D" parent="."]
+position = Vector2(-25, 182)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyMoveLimit"]
+rotation = -1.57084
+shape = SubResource("2")
+
+[node name="Ship" parent="." instance=ExtResource("3")]
+position = Vector2(113, 63)
+rotation = 1.41333
+
+[node name="Ship2" parent="." instance=ExtResource("3")]
+position = Vector2(205, 57)
+rotation = -0.629859
+
+[node name="Ship3" parent="." instance=ExtResource("3")]
+position = Vector2(158, 97)
+rotation = -2.04319
+
+[node name="Ship4" parent="." instance=ExtResource("3")]
+position = Vector2(273, 96)
+rotation = 2.82666
+
+[node name="Player" parent="." instance=ExtResource("4_m28ui")]
+position = Vector2(186, 248)
+rotation = -1.57079

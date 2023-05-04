@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Texture2D" uid="uid://b4oxpr3y5afhd" path="res://images/smoke.png" id="1"]
+
+[sub_resource type="CanvasItemMaterial" id="6"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_p5dj0"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_711el"]
+gradient = SubResource("Gradient_p5dj0")
+
+[sub_resource type="Curve" id="8"]
+_data = [Vector2(0, 0.238716), 0.0, 3.72917, 0, 0, Vector2(0.608939, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.177094), -3.28282, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_twvu0"]
+curve = SubResource("8")
+
+[sub_resource type="ParticleProcessMaterial" id="9"]
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 34.93
+scale_curve = SubResource("CurveTexture_twvu0")
+color = Color(0.584314, 0.65098, 0.882353, 1)
+color_ramp = SubResource("GradientTexture1D_711el")
+anim_offset_max = 1.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Smoke" type="GPUParticles2D" parent="."]
+material = SubResource("6")
+emitting = false
+amount = 18
+process_material = SubResource("9")
+texture = ExtResource("1")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://gsbj45asrm3d"]
+
+[ext_resource type="Script" path="res://scenes/Background/Background.gd" id="1_8e5nw"]
+[ext_resource type="Script" path="res://scenes/Background/BackgroundPivot.gd" id="2_xshkw"]
+[ext_resource type="Texture2D" uid="uid://dk38tbyjyyhqi" path="res://images/Background.png" id="3_fe2ck"]
+[ext_resource type="Script" path="res://scenes/Background/BackgroundWatcher.gd" id="4_c5pkj"]
+
+[node name="Background" type="Node2D"]
+script = ExtResource("1_8e5nw")
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(204, 152)
+scale = Vector2(1.6, 1.6)
+script = ExtResource("2_xshkw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+z_index = -1
+texture = ExtResource("3_fe2ck")
+
+[node name="Watcher" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(10, 10)
+script = ExtResource("4_c5pkj")

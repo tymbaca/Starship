@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/Effect/Effect.tscn" id="1_xsrfk"]
+[ext_resource type="PackedScene" path="res://scenes/Effect/Sparks1.tscn" id="2_13ddv"]
+[ext_resource type="PackedScene" path="res://scenes/Effect/Smoke1.tscn" id="3_jvtxc"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vcg6n"]
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 179.18
+color = Color(1, 0.890196, 0.721569, 1)
+anim_offset_max = 1.0
+
+[node name="DestroySmoke" instance=ExtResource("1_xsrfk")]
+
+[node name="Sparks" parent="." index="0" instance=ExtResource("2_13ddv")]
+amount = 19
+process_material = SubResource("ParticleProcessMaterial_vcg6n")
+
+[node name="Smoke" parent="." index="1" instance=ExtResource("3_jvtxc")]
+amount = 19
+lifetime = 2.57

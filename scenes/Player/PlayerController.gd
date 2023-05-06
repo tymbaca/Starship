@@ -9,13 +9,14 @@ extends Node2D
 @export var is_verbose: bool = false
 
 var screen_size = Vector2.ZERO
-@onready var mover: Node2D = $"../Mover"
-@onready var bullet_spawner: Node2D = $"../BulletSpawner"
-@onready var parent: CharacterBody2D = get_parent()
+@onready var mover: Mover = $"../Mover"
+@onready var weapon: Weapon = $"../Weapon"
+@onready var parent: Ship = get_parent()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+
 
 	# Configuring childs
 	# $Mover.turn_speed = turn_speed
@@ -29,10 +30,17 @@ func _process(delta):
 		mover.move_left()
 	if Input.is_action_pressed("move_right"):
 		mover.move_right()
-		
+	
+	if Input.is_action_pressed("dash"):
+		mover.dash()
+	# if Input.is_action_pressed("dash_left"):
+	# 	mover.dash_left()
+	# elif Input.is_action_pressed("dash_right"):
+	# 	mover.dash_right()
+	
 	
 	if Input.is_action_pressed("fire"):
-		bullet_spawner.fire()
+		weapon.fire()
 
 #	if Input.is_action_pressed("move_up"):
 #		mover.move_up()

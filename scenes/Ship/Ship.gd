@@ -5,7 +5,8 @@ extends CharacterBody2D
 @export var health: int = 3
 @export var destroy_effect_scene: PackedScene
 
-@onready var world = get_parent()
+@onready var world = Level.node
+# @onready var weapon = $BulletSpawner
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

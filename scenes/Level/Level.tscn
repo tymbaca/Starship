@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctd8spq2mo1d5"]
+[gd_scene load_steps=8 format=3 uid="uid://ctd8spq2mo1d5"]
 
 [ext_resource type="Script" path="res://scenes/Level/Level.gd" id="1_e83f4"]
 [ext_resource type="PackedScene" uid="uid://gsbj45asrm3d" path="res://scenes/Background/background.tscn" id="2_gqkdp"]
-[ext_resource type="PackedScene" uid="uid://6b4t2tn2auii" path="res://scenes/Ship/Ship.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bws8kxr5je7nf" path="res://scenes/Ship/Ship.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://dhgvy0gslmkki" path="res://scenes/Player/player.tscn" id="4_m28ui"]
+[ext_resource type="PackedScene" uid="uid://dypxuvx1yymio" path="res://scenes/Enemy/Enemy.tscn" id="5_scl8g"]
 
 [sub_resource type="Curve2D" id="1"]
 _data = {
@@ -38,20 +39,24 @@ shape = SubResource("2")
 
 [node name="Ship" parent="." instance=ExtResource("3")]
 position = Vector2(113, 63)
-rotation = 1.41333
+rotation = 1.57079
 
 [node name="Ship2" parent="." instance=ExtResource("3")]
 position = Vector2(205, 57)
-rotation = -0.629859
+rotation = 1.57079
 
 [node name="Ship3" parent="." instance=ExtResource("3")]
 position = Vector2(158, 97)
-rotation = -2.04319
+rotation = -4.7094
 
 [node name="Ship4" parent="." instance=ExtResource("3")]
 position = Vector2(273, 96)
-rotation = 2.82666
+rotation = 1.57079
 
 [node name="Player" parent="." instance=ExtResource("4_m28ui")]
 position = Vector2(186, 248)
 rotation = -1.57079
+
+[node name="Enemy" parent="." instance=ExtResource("5_scl8g")]
+position = Vector2(219, 133)
+rotation = 1.57079

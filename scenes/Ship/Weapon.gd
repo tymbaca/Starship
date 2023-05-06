@@ -1,3 +1,4 @@
+class_name Weapon
 extends Node2D
 
 @export var bullet_scene: PackedScene

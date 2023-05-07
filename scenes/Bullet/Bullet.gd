@@ -29,7 +29,7 @@ func emit_hit_effect(collision: KinematicCollision2D):
 	var global_rotation_vector: Vector2 = Vector2.RIGHT.rotated(global_rotation)
 	effect.global_position = global_position
 	effect.global_rotation = get_reflect_vector(global_rotation_vector, collision.get_normal()).angle() + PI/2
-	Level.node.add_child(effect)
+	Settings.world.add_child(effect)
 #	print(rad_to_deg(effect.global_rotation), " / ", effect.global_rotation_degrees, " / ", effect.global_rotation)
 
 func get_reflect_vector(initial: Vector2, normal: Vector2):

@@ -17,7 +17,6 @@ config/icon="res://images/icon.png"
 
 [autoload]
 
-Level="*res://scenes/Level/Level.gd"
 Settings="*res://scenes/Settings.gd"
 
 [display]
@@ -25,6 +24,7 @@ Settings="*res://scenes/Settings.gd"
 window/size/viewport_width=400
 window/size/viewport_height=300
 window/stretch/mode="viewport"
+window/dpi/allow_hidpi=false
 
 [dotnet]
 
@@ -100,6 +100,21 @@ turn_right={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
+dash_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":65,"echo":false,"script":null)
+]
+}
+dash_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":68,"echo":false,"script":null)
+]
+}
+dash={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
 
 [physics]
 
@@ -108,5 +123,6 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0.301961, 0.301961, 0.301961, 1)
 environment/defaults/default_environment="res://default_env.tres"

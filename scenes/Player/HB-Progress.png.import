@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl7sligpyilvq"
-path="res://.godot/imported/Ship.png-1246902fd7c9bc036fe4f515994316cf.ctex"
+uid="uid://cbgwivabxekdw"
+path="res://.godot/imported/HB-Progress.png-6c7e30bf8ab6435ce290284d8cb14932.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Ship.png"
-dest_files=["res://.godot/imported/Ship.png-1246902fd7c9bc036fe4f515994316cf.ctex"]
+source_file="res://scenes/Player/HB-Progress.png"
+dest_files=["res://.godot/imported/HB-Progress.png-6c7e30bf8ab6435ce290284d8cb14932.ctex"]
 
 [params]
 

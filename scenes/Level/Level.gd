@@ -1,3 +1,10 @@
 extends Node2D
+class_name Level
 
-@onready var node: Node2D = get_tree().get_nodes_in_group("Level")[0]
+func _ready() -> void:
+	Settings.world = self
+
+
+func no_enemy_left() -> bool:
+	# Not implemented
+	return true

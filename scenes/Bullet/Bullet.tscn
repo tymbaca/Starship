@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://ryxih3n45dht"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="PackedScene" uid="uid://ohoo7bijbp2j" path="res://scenes/Effect/HitEffect.tscn" id="1_lv2q7"]
 [ext_resource type="Script" path="res://scenes/Bullet/Bullet.gd" id="1_t8trk"]
-[ext_resource type="Texture2D" uid="uid://cif3qgjqykfee" path="res://images/Bullet.png" id="2_b5l5c"]
+[ext_resource type="Texture2D" uid="uid://cif3qgjqykfee" path="res://scenes/Bullet/Bullet.png" id="2_b5l5c"]
 
 [sub_resource type="CapsuleShape2D" id="1"]
 radius = 0.0
 height = 0.0
 
 [node name="Bullet" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_t8trk")
 hit_effect_scene = ExtResource("1_lv2q7")
 

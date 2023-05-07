@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bws8kxr5je7nf"]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource type="Texture2D" uid="uid://bl7sligpyilvq" path="res://images/Ship.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bl7sligpyilvq" path="res://scenes/Ship/Ship.png" id="1"]
 [ext_resource type="Script" path="res://scenes/Ship/Mover.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://ryxih3n45dht" path="res://scenes/Bullet/Bullet.tscn" id="4"]
 [ext_resource type="Script" path="res://scenes/Ship/Ship.gd" id="5"]
@@ -12,7 +12,6 @@
 
 [node name="Ship" type="CharacterBody2D"]
 script = ExtResource("5")
-health = 6
 destroy_effect_scene = ExtResource("6")
 
 [node name="BodyCollider" type="CollisionPolygon2D" parent="."]

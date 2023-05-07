@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2qnxh7da2fpl"]
+
+[ext_resource type="Script" path="res://scenes/Army/Army.gd" id="1_lednl"]
+
+[node name="BaseArmy" type="Node2D"]
+position = Vector2(-1, 1)
+script = ExtResource("1_lednl")
+offset = 0.08
+ratio_speed = 0.2

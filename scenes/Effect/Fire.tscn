@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3]
 
-[ext_resource type="Texture2D" uid="uid://bwij4ebm7uptl" path="res://images/Particle.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bwij4ebm7uptl" path="res://scenes/Effect/Particle.png" id="1"]
 
 [sub_resource type="CanvasItemMaterial" id=4]
 blend_mode = 1

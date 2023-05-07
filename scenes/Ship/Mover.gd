@@ -1,7 +1,7 @@
 class_name Mover
 extends Node2D
 
-@export var default_speed: float = 10000
+@export var default_speed: float = 15000
 @export var dash_multiplier: float = 2
 @export var turn_speed = 2
 @export var dash_time: float = 1
@@ -84,4 +84,5 @@ func dash() -> void:
 func emit_dash_effect():
 	var effect = dash_effect_scene.instantiate()
 	add_child(effect)
+	effect.global_position = global_position
 	effect.rotation = direction.angle() + PI/2

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://ohoo7bijbp2j"]
 
 [ext_resource type="PackedScene" path="res://scenes/Effect/Effect.tscn" id="1_x846s"]
-[ext_resource type="PackedScene" path="res://scenes/Effect/Sparks1.tscn" id="2_uhg0h"]
+[ext_resource type="PackedScene" uid="uid://c0d4a8ia10dub" path="res://scenes/Effect/Sparks1.tscn" id="2_uhg0h"]
 [ext_resource type="PackedScene" path="res://scenes/Effect/Smoke1.tscn" id="3_xk6h1"]
 
 [sub_resource type="Gradient" id="Gradient_qtklo"]

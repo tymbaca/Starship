@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3]
 
-[ext_resource type="Texture2D" uid="uid://cxjs18yg07tvs" path="res://images/Sparks.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cxjs18yg07tvs" path="res://scenes/Effect/Sparks.png" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/Effect/Effect.tscn" id="1_cfj3v"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hfc4y"]

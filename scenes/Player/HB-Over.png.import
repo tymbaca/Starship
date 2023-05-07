@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi78d0hxse2wh"
-path="res://.godot/imported/smoke2.png-f8146d57053bca4a288f695e9397fd06.ctex"
+uid="uid://dstfpd3mlfn75"
+path="res://.godot/imported/HB-Over.png-d8cf0e9e8f6d1e60853707d4ef8b7fc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/smoke2.png"
-dest_files=["res://.godot/imported/smoke2.png-f8146d57053bca4a288f695e9397fd06.ctex"]
+source_file="res://scenes/Player/HB-Over.png"
+dest_files=["res://.godot/imported/HB-Over.png-d8cf0e9e8f6d1e60853707d4ef8b7fc0.ctex"]
 
 [params]
 

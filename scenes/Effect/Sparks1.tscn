@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3]
 
-[ext_resource type="Texture2D" uid="uid://cxjs18yg07tvs" path="res://images/Sparks.png" id="1_ybbty"]
+[ext_resource type="Texture2D" uid="uid://cxjs18yg07tvs" path="res://scenes/Effect/Sparks.png" id="1_ybbty"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_25ral"]
 particles_animation = true

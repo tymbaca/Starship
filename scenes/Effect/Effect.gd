@@ -3,7 +3,6 @@ extends Node2D
 
 @export var emitting: bool = true
 
-
 @onready var effects: Array = get_children()
 
 

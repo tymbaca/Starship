@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://gsbj45asrm3d"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scenes/Background/Background.gd" id="1_8e5nw"]
 [ext_resource type="Script" path="res://scenes/Background/BackgroundPivot.gd" id="2_xshkw"]
-[ext_resource type="Texture2D" uid="uid://dk38tbyjyyhqi" path="res://images/Background.png" id="3_fe2ck"]
+[ext_resource type="Texture2D" uid="uid://dk38tbyjyyhqi" path="res://scenes/Background/Background.png" id="3_fe2ck"]
 [ext_resource type="Script" path="res://scenes/Background/BackgroundWatcher.gd" id="4_c5pkj"]
 
 [node name="Background" type="Node2D"]

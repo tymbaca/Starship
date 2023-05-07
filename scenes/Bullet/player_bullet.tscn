@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://lv0cu8de5ayp"]
+
+[ext_resource type="PackedScene" uid="uid://ryxih3n45dht" path="res://scenes/Bullet/Bullet.tscn" id="1_klahh"]
+
+[node name="PlayerBullet" instance=ExtResource("1_klahh")]
+collision_layer = 1
+collision_mask = 2

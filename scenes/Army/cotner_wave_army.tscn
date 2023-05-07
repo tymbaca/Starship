@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6pu76ose8f5m"]
+
+[ext_resource type="PackedScene" uid="uid://b2qnxh7da2fpl" path="res://scenes/Army/BaseArmy.tscn" id="1_gdkfi"]
+[ext_resource type="PackedScene" uid="uid://bghwqrehp5f6q" path="res://scenes/Army/enemy_path.tscn" id="2_ghu4p"]
+
+[node name="CotnerWaveArmy" instance=ExtResource("1_gdkfi")]
+
+[node name="EnemyPath" parent="." index="0" instance=ExtResource("2_ghu4p")]
+
+[node name="EnemyPath2" parent="." index="1" instance=ExtResource("2_ghu4p")]
+position = Vector2(10, 43)
+rotation = 0.00326058
+pivot_progress_ratio = 1.0
+direction = 1
+
+[node name="EnemyPath3" parent="." index="2" instance=ExtResource("2_ghu4p")]
+position = Vector2(10, 84)
+rotation = 0.00326058
+
+[node name="EnemyPath4" parent="." index="3" instance=ExtResource("2_ghu4p")]
+position = Vector2(10, 128)
+rotation = 0.00326058
+pivot_progress_ratio = 1.0
+direction = 1
+
+[node name="EnemyPath5" parent="." index="4" instance=ExtResource("2_ghu4p")]
+position = Vector2(10, 171)
+rotation = 0.00326058

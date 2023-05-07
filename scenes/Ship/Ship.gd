@@ -25,6 +25,6 @@ func die():
 func emit_destroy_effect():
 	var effect: Node2D = destroy_effect_scene.instantiate()
 	effect.global_position = global_position
-	Settings.world.add_child(effect)
+	Settings.current_level.add_child(effect)
 	
 	

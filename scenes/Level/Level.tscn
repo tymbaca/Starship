@@ -16,6 +16,7 @@ script = ExtResource("1_e83f4")
 
 [node name="Background" parent="." instance=ExtResource("2_gqkdp")]
 position = Vector2(-4, -19)
+scale = Vector2(0.675, 0.675)
 
 [node name="Player" parent="." instance=ExtResource("4_m28ui")]
 position = Vector2(186, 248)

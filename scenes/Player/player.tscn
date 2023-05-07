@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhgvy0gslmkki"]
+[gd_scene load_steps=10 format=3 uid="uid://dhgvy0gslmkki"]
 
-[ext_resource type="PackedScene" path="res://scenes/Ship/Ship.tscn" id="1_4x4ws"]
+[ext_resource type="PackedScene" uid="uid://nnp4a16g3n0j" path="res://scenes/Ship/Ship.tscn" id="1_4x4ws"]
 [ext_resource type="Script" path="res://scenes/Player/Player.gd" id="2_narxj"]
 [ext_resource type="Script" path="res://scenes/Player/PlayerController.gd" id="3_878r7"]
+[ext_resource type="PackedScene" uid="uid://cvq1e8a7ynk0e" path="res://scenes/Effect/player_dash_effect.tscn" id="3_jc1a0"]
 [ext_resource type="PackedScene" uid="uid://lv0cu8de5ayp" path="res://scenes/Bullet/player_bullet.tscn" id="3_vap5r"]
 [ext_resource type="Texture2D" uid="uid://cbxgi0bw4jqr1" path="res://scenes/Player/HB-Under.png" id="5_0qshq"]
 [ext_resource type="Texture2D" uid="uid://dstfpd3mlfn75" path="res://scenes/Player/HB-Over.png" id="6_hvnnj"]
@@ -12,6 +13,9 @@
 [node name="Player" node_paths=PackedStringArray("health_bar") instance=ExtResource("1_4x4ws")]
 script = ExtResource("2_narxj")
 health_bar = NodePath("HealthBar")
+
+[node name="Mover" parent="." index="2"]
+dash_effect_scene = ExtResource("3_jc1a0")
 
 [node name="Weapon" parent="." index="3"]
 bullet_scene = ExtResource("3_vap5r")

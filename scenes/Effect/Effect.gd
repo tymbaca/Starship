@@ -11,10 +11,17 @@ func _ready() -> void:
 	emit()
 
 func _process(delta: float) -> void:
-	emitting = false
-	for effect in effects:
-		emitting = emitting or effect.emitting
+	if is_finished():
+		queue_free()
+
 
 func emit():
 	for effect in effects:
 		effect.emitting = true 
+
+func is_finished():
+	var is_emitting = false
+	for effect in effects:
+		is_emitting = is_emitting or effect.emitting
+	return not is_emitting
+	

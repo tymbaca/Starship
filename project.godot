@@ -32,7 +32,7 @@ project/assembly_name="Starship"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 

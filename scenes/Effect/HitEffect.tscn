@@ -45,7 +45,6 @@ color_ramp = SubResource("GradientTexture1D_uhnh5")
 anim_speed_max = 1.0
 
 [node name="HitEffect" instance=ExtResource("1_x846s")]
-effects = Array[GPUParticles2D]([null, null])
 
 [node name="Sparks" parent="." index="0" instance=ExtResource("2_uhg0h")]
 process_material = SubResource("ParticleProcessMaterial_0jcrf")

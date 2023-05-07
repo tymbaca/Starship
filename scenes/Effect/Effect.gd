@@ -3,7 +3,7 @@ extends Node2D
 
 @export var emitting: bool = true
 
-@export var effects: Array[GPUParticles2D]
+@onready var effects: Array = get_children()
 
 
 func _ready() -> void:

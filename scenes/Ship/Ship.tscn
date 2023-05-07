@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://nnp4a16g3n0j"]
 
 [ext_resource type="Texture2D" uid="uid://bl7sligpyilvq" path="res://scenes/Ship/Ship.png" id="1"]
 [ext_resource type="Script" path="res://scenes/Ship/Mover.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://ryxih3n45dht" path="res://scenes/Bullet/Bullet.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/Bullet/Bullet.tscn" id="4"]
 [ext_resource type="Script" path="res://scenes/Ship/Ship.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://oytg3khefi57" path="res://scenes/Effect/dash_effect.tscn" id="5_kpcq0"]
 [ext_resource type="Script" path="res://scenes/Ship/Weapon.gd" id="5_u5ule"]

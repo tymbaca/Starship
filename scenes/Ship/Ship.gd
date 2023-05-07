@@ -1,5 +1,6 @@
-class_name Ship
+@icon("res://scenes/Ship/class_icon.svg")
 extends CharacterBody2D
+class_name Ship
 
 
 @export var max_health: int = 3

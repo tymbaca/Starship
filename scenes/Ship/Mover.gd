@@ -66,19 +66,18 @@ func dash_right() -> void:
 func dash() -> void:
 	if not cooldown and ship.velocity != Vector2.ZERO:
 		dashing = true
-		speed = default_speed * dash_multiplier
+		cooldown = true
 		emit_dash_effect()
+		var tween := create_tween()
+		
+		tween.tween_property(self, "speed", default_speed * dash_multiplier, dash_time/4).set_trans(Tween.TRANS_BACK)
+		tween.tween_interval(dash_time/2)
+		tween.tween_property(self, "speed", default_speed, dash_time/4)
+		await tween.finished
 
-		var timer = get_tree().create_timer(dash_time)
-		timer.timeout.connect(func(): 
-			speed = default_speed
-			dashing = false
-			cooldown = true
-			var cooldown_timer = get_tree().create_timer(cooldown_time)
-			cooldown_timer.timeout.connect(func():
-				cooldown = false
-			)
-		)
+		var cooldown_timer := get_tree().create_timer(cooldown_time)
+		await cooldown_timer.timeout
+		cooldown = false
 
 
 func emit_dash_effect():

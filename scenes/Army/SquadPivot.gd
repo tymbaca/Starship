@@ -1,5 +1,5 @@
 extends PathFollow2D
-class_name PathPivot
+class_name SquadPivot
 
 enum Direction {
 	RIGHT,
@@ -7,6 +7,7 @@ enum Direction {
 }
 
 #@export var number: int
+@onready var enemy := $Enemy
 var direction: Direction
 
 

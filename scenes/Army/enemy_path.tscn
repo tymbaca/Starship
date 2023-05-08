@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bghwqrehp5f6q"]
+[gd_scene load_steps=5 format=3 uid="uid://v14x6o2o8lnc"]
 
 [ext_resource type="Script" path="res://scenes/Army/enemy_path.gd" id="1_abgya"]
-[ext_resource type="Script" path="res://scenes/Army/Pivot.gd" id="1_p7xvp"]
+[ext_resource type="Script" path="res://scenes/Army/SquadPivot.gd" id="2_6xi3u"]
 [ext_resource type="PackedScene" uid="uid://dypxuvx1yymio" path="res://scenes/Enemy/Enemy.tscn" id="2_s5da2"]
 
 [sub_resource type="Curve2D" id="Curve2D_6l0fq"]
@@ -19,7 +19,7 @@ script = ExtResource("1_abgya")
 [node name="Pivot" type="PathFollow2D" parent="."]
 position = Vector2(8, 15)
 rotation = 0.00543473
-script = ExtResource("1_p7xvp")
+script = ExtResource("2_6xi3u")
 
 [node name="Enemy" parent="Pivot" instance=ExtResource("2_s5da2")]
 rotation = 1.57079

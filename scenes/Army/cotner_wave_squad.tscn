@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://b7juu6w3om2k4"]
 
-[ext_resource type="PackedScene" path="res://scenes/Army/BaseSquad.tscn" id="1_gdkfi"]
-[ext_resource type="PackedScene" uid="uid://bghwqrehp5f6q" path="res://scenes/Army/enemy_path.tscn" id="2_ghu4p"]
+[ext_resource type="PackedScene" uid="uid://cgtffj8bvaoa5" path="res://scenes/Army/BaseSquad.tscn" id="1_gdkfi"]
+[ext_resource type="PackedScene" uid="uid://v14x6o2o8lnc" path="res://scenes/Army/enemy_path.tscn" id="2_ghu4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtb5j"]
+size = Vector2(400, 209)
 
 [node name="CotnerWaveArmy" instance=ExtResource("1_gdkfi")]
 
@@ -26,3 +29,12 @@ direction = 1
 [node name="EnemyPath5" parent="." index="4" instance=ExtResource("2_ghu4p")]
 position = Vector2(10, 171)
 rotation = 0.00326058
+
+[node name="MovingArea" parent="." index="5"]
+light_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingArea" index="0"]
+light_mask = 2
+position = Vector2(201, 103.5)
+shape = SubResource("RectangleShape2D_jtb5j")
+debug_color = Color(1, 0.337255, 0.356863, 0.141176)

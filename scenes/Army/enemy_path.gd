@@ -1,10 +1,10 @@
-@tool
 extends Path2D
+class_name SquadPath
 
 @onready var pivot = $Pivot
 
 @export_range(0, 1) var pivot_progress_ratio: float
-@export var direction: PathPivot.Direction = PathPivot.Direction.RIGHT
+@export var direction: SquadPivot.Direction = SquadPivot.Direction.RIGHT
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

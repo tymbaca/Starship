@@ -5,6 +5,7 @@ class_name Ship
 
 @export var max_health: int = 3
 @export var destroy_effect_scene: PackedScene
+@export var god_mode: bool = false
 
 var health: int
 # @onready var weapon = $BulletSpawner
@@ -18,6 +19,10 @@ func _process(delta):
 	if health <= 0:
 		die()
 	pass
+
+func take_damage(damage: int):
+	if not god_mode:
+			health -= damage
 
 func die():
 	queue_free()

@@ -1,3 +1,4 @@
+@tool
 extends PathFollow2D
 class_name SquadPivot
 
@@ -26,4 +27,4 @@ func _process(delta: float) -> void:
 	elif direction == Direction.LEFT:
 		if progress_ratio < 0.05:
 			direction = Direction.RIGHT
-		
+

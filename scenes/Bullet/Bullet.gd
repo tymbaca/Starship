@@ -40,4 +40,4 @@ func get_reflect_vector(initial: Vector2, normal: Vector2):
 	
 func do_damage(collider: Object):
 	if collider is Ship:
-		collider.health -= damage
+		collider.take_damage(damage)

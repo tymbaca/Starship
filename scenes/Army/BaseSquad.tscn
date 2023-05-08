@@ -1,11 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgtffj8bvaoa5"]
+[gd_scene load_steps=3 format=3 uid="uid://cgtffj8bvaoa5"]
 
 [ext_resource type="Script" path="res://scenes/Army/Squad.gd" id="1_lednl"]
+[ext_resource type="Script" path="res://scenes/Army/SquadArea.gd" id="2_wbcv4"]
 
-[node name="BaseSquad" type="Node2D"]
+[node name="BaseSquad" type="Node2D" node_paths=PackedStringArray("squad_area", "raycast")]
 position = Vector2(-1, 1)
 script = ExtResource("1_lednl")
-offset = 0.08
+vertical_speed = 30.0
 ratio_speed = 0.2
+offset = 0.08
+squad_area = NodePath("SquadArea")
+raycast = NodePath("SquadArea/RayCast")
 
-[node name="MovingArea" type="Area2D" parent="."]
+[node name="SquadArea" type="Area2D" parent="."]
+priority = 1.0
+script = ExtResource("2_wbcv4")
+
+[node name="RayCast" type="RayCast2D" parent="SquadArea"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(201, 202)
+target_position = Vector2(0, 34)
+collision_mask = 3
+hit_from_inside = true
+collide_with_areas = true

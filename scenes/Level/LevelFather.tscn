@@ -1,58 +1,84 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnchackcmjo4i"]
+[gd_scene load_steps=15 format=3 uid="uid://dnchackcmjo4i"]
 
 [ext_resource type="Script" path="res://scenes/Level/LevelFather.gd" id="1_ih4m1"]
 [ext_resource type="PackedScene" path="res://scenes/Background/background.tscn" id="2_cn6n0"]
 [ext_resource type="Script" path="res://scenes/Level/Level.gd" id="2_swck0"]
 [ext_resource type="PackedScene" uid="uid://dhgvy0gslmkki" path="res://scenes/Player/player.tscn" id="3_s310s"]
 [ext_resource type="PackedScene" uid="uid://b7juu6w3om2k4" path="res://scenes/Army/cotner_wave_squad.tscn" id="4_wikkg"]
+[ext_resource type="PackedScene" uid="uid://8h51bwubs0o8" path="res://scenes/Army/wave_squad.tscn" id="5_0bygg"]
 [ext_resource type="Script" path="res://scenes/Level/Menu.gd" id="5_its8b"]
+[ext_resource type="Script" path="res://scenes/Level/CombatZone.gd" id="6_8kq4t"]
 [ext_resource type="Texture2D" uid="uid://cnt218c40ubm3" path="res://scenes/Level/Retry-icon.png" id="6_kbr1g"]
 [ext_resource type="Script" path="res://scenes/Level/Button.gd" id="7_qoe8g"]
+[ext_resource type="Script" path="res://scenes/Level/SafeZone.gd" id="7_xk5od"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_keyjd"]
-size = Vector2(20, 424)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owpca"]
+size = Vector2(389, 208)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5d71t"]
 size = Vector2(403, 93)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_keyjd"]
+size = Vector2(20, 424)
+
 [node name="LevelFather" type="Node2D" groups=["Level"]]
 script = ExtResource("1_ih4m1")
 
-[node name="Level" type="Node2D" parent="." node_paths=PackedStringArray("safe_zone")]
+[node name="Level" type="Node2D" parent="." node_paths=PackedStringArray("combat_zone", "safe_zone")]
+unique_name_in_owner = true
 script = ExtResource("2_swck0")
+combat_zone = NodePath("CombatZone")
 safe_zone = NodePath("SafeZone")
 
 [node name="Background" parent="Level" instance=ExtResource("2_cn6n0")]
 position = Vector2(-4, -19)
 scale = Vector2(0.675, 0.675)
 
+[node name="WaveArmy" parent="Level" instance=ExtResource("5_0bygg")]
+position = Vector2(0, -16)
+vertical_speed = 10.0
+
+[node name="CotnerWaveArmy" parent="Level" instance=ExtResource("4_wikkg")]
+position = Vector2(0, -248)
+vertical_speed = 10.0
+
 [node name="Player" parent="Level" instance=ExtResource("3_s310s")]
 position = Vector2(186, 248)
 rotation = -1.57079
+max_health = 5
+god_mode = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Level"]
-position = Vector2(-3, 179)
+[node name="CombatZone" type="Area2D" parent="Level"]
+script = ExtResource("6_8kq4t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/StaticBody2D"]
-shape = SubResource("RectangleShape2D_keyjd")
-debug_color = Color(0, 0.0196078, 0.027451, 0.419608)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Level"]
-position = Vector2(402, 192)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/StaticBody2D2"]
-shape = SubResource("RectangleShape2D_keyjd")
-debug_color = Color(0, 0.027451, 0.0392157, 0.419608)
-
-[node name="CotnerWaveArmy" parent="Level" instance=ExtResource("4_wikkg")]
-position = Vector2(-1, -70)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/CombatZone"]
+position = Vector2(201.5, 104)
+shape = SubResource("RectangleShape2D_owpca")
+debug_color = Color(0.862745, 0.360784, 0, 0.227451)
 
 [node name="SafeZone" type="Area2D" parent="Level"]
 position = Vector2(0, 210)
+script = ExtResource("7_xk5od")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/SafeZone"]
 position = Vector2(201.5, 46.5)
 shape = SubResource("RectangleShape2D_5d71t")
+
+[node name="Walls" type="Node2D" parent="Level"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Walls"]
+position = Vector2(-3, 179)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Walls/StaticBody2D"]
+shape = SubResource("RectangleShape2D_keyjd")
+debug_color = Color(0, 0.0196078, 0.027451, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Level/Walls"]
+position = Vector2(402, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Walls/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_keyjd")
+debug_color = Color(0, 0.027451, 0.0392157, 0.419608)
 
 [node name="Menu" type="Control" parent="." node_paths=PackedStringArray("player")]
 process_priority = -1

@@ -3,38 +3,40 @@
 [ext_resource type="PackedScene" uid="uid://cgtffj8bvaoa5" path="res://scenes/Army/BaseSquad.tscn" id="1_gdkfi"]
 [ext_resource type="PackedScene" uid="uid://v14x6o2o8lnc" path="res://scenes/Army/enemy_path.tscn" id="2_ghu4p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtb5j"]
-size = Vector2(400, 209)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxn4y"]
+size = Vector2(400, 233)
 
 [node name="CotnerWaveArmy" instance=ExtResource("1_gdkfi")]
 
 [node name="EnemyPath" parent="." index="0" instance=ExtResource("2_ghu4p")]
 
 [node name="EnemyPath2" parent="." index="1" instance=ExtResource("2_ghu4p")]
-position = Vector2(10, 43)
+position = Vector2(10, 36)
 rotation = 0.00326058
 pivot_progress_ratio = 1.0
 direction = 1
 
 [node name="EnemyPath3" parent="." index="2" instance=ExtResource("2_ghu4p")]
-position = Vector2(10, 84)
+position = Vector2(10, 73)
 rotation = 0.00326058
 
 [node name="EnemyPath4" parent="." index="3" instance=ExtResource("2_ghu4p")]
-position = Vector2(10, 128)
+position = Vector2(10, 113)
 rotation = 0.00326058
 pivot_progress_ratio = 1.0
 direction = 1
 
 [node name="EnemyPath5" parent="." index="4" instance=ExtResource("2_ghu4p")]
-position = Vector2(10, 171)
+position = Vector2(10, 151)
 rotation = 0.00326058
 
-[node name="MovingArea" parent="." index="5"]
-light_mask = 2
+[node name="SquadArea" parent="." index="5"]
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingArea" index="0"]
-light_mask = 2
-position = Vector2(201, 103.5)
-shape = SubResource("RectangleShape2D_jtb5j")
-debug_color = Color(1, 0.337255, 0.356863, 0.141176)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SquadArea" index="0"]
+position = Vector2(201, 89.5)
+shape = SubResource("RectangleShape2D_mxn4y")
+
+[node name="RayCast" parent="SquadArea" index="1"]
+position = Vector2(202, 188)

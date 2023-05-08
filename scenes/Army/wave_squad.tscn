@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://8h51bwubs0o8"]
 
-[ext_resource type="PackedScene" path="res://scenes/Army/BaseSquad.tscn" id="1_oihx6"]
-[ext_resource type="PackedScene" uid="uid://bghwqrehp5f6q" path="res://scenes/Army/enemy_path.tscn" id="2_kbhu7"]
+[ext_resource type="PackedScene" uid="uid://cgtffj8bvaoa5" path="res://scenes/Army/BaseSquad.tscn" id="1_oihx6"]
+[ext_resource type="PackedScene" uid="uid://v14x6o2o8lnc" path="res://scenes/Army/enemy_path.tscn" id="2_kbhu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2ohp"]
+size = Vector2(400, 230)
 
 [node name="WaveArmy" instance=ExtResource("1_oihx6")]
+offset = 0.2
 
 [node name="EnemyPath" parent="." index="0" instance=ExtResource("2_kbhu7")]
 
@@ -22,3 +26,7 @@ rotation = 0.00326058
 [node name="EnemyPath5" parent="." index="4" instance=ExtResource("2_kbhu7")]
 position = Vector2(10, 171)
 rotation = 0.00326058
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SquadArea" index="0"]
+position = Vector2(201, 91)
+shape = SubResource("RectangleShape2D_f2ohp")

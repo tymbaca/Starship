@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdvnir0x5hhv2"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" uid="uid://b2qnxh7da2fpl" path="res://scenes/Army/BaseArmy.tscn" id="1_oihx6"]
+[ext_resource type="PackedScene" path="res://scenes/Army/BaseSquad.tscn" id="1_oihx6"]
 [ext_resource type="PackedScene" uid="uid://bghwqrehp5f6q" path="res://scenes/Army/enemy_path.tscn" id="2_kbhu7"]
 
 [node name="WaveArmy" instance=ExtResource("1_oihx6")]

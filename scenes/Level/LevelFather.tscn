@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnchackcmjo4i"]
+
+[ext_resource type="Script" path="res://scenes/Level/LevelFather.gd" id="1_ih4m1"]
+[ext_resource type="PackedScene" path="res://scenes/Background/background.tscn" id="2_cn6n0"]
+[ext_resource type="Script" path="res://scenes/Level/Level.gd" id="2_swck0"]
+[ext_resource type="PackedScene" uid="uid://dhgvy0gslmkki" path="res://scenes/Player/player.tscn" id="3_s310s"]
+[ext_resource type="PackedScene" path="res://scenes/Army/cotner_wave_squad.tscn" id="4_wikkg"]
+[ext_resource type="Script" path="res://scenes/Level/Menu.gd" id="5_its8b"]
+[ext_resource type="Texture2D" uid="uid://cnt218c40ubm3" path="res://scenes/Level/Retry-icon.png" id="6_kbr1g"]
+[ext_resource type="Script" path="res://scenes/Level/Button.gd" id="7_qoe8g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_keyjd"]
+size = Vector2(20, 424)
+
+[node name="LevelFather" type="Node2D" groups=["Level"]]
+script = ExtResource("1_ih4m1")
+
+[node name="Level" type="Node2D" parent="."]
+script = ExtResource("2_swck0")
+
+[node name="Background" parent="Level" instance=ExtResource("2_cn6n0")]
+position = Vector2(-4, -19)
+scale = Vector2(0.675, 0.675)
+
+[node name="Player" parent="Level" instance=ExtResource("3_s310s")]
+position = Vector2(186, 248)
+rotation = -1.57079
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level"]
+position = Vector2(-3, 179)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/StaticBody2D"]
+shape = SubResource("RectangleShape2D_keyjd")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Level"]
+position = Vector2(402, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_keyjd")
+
+[node name="CotnerWaveArmy" parent="Level" instance=ExtResource("4_wikkg")]
+
+[node name="Menu" type="Control" parent="." node_paths=PackedStringArray("player")]
+process_priority = -1
+visible = false
+top_level = true
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 300.0
+script = ExtResource("5_its8b")
+player = NodePath("../Level/Player")
+
+[node name="Background" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.0823529, 0.0823529, 0.694118)
+
+[node name="Button" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 242.0
+offset_right = 224.0
+offset_bottom = 273.0
+text = "Retry"
+icon = ExtResource("6_kbr1g")
+expand_icon = true
+script = ExtResource("7_qoe8g")

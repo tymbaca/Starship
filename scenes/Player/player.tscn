@@ -13,6 +13,7 @@
 [node name="Player" node_paths=PackedStringArray("health_bar") instance=ExtResource("1_4x4ws")]
 script = ExtResource("2_narxj")
 health_bar = NodePath("HealthBar")
+enemy_killed = 0
 
 [node name="Mover" parent="." index="2"]
 dash_effect_scene = ExtResource("3_jc1a0")

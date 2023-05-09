@@ -1,8 +1,8 @@
 extends Node2D
 class_name Squad
 
-signal defeated
-signal started_moving
+signal defeated(squad: Squad)
+
 
 enum Type {
 	WAVE,
@@ -35,7 +35,6 @@ var state: States = States.STACKED
 func _ready() -> void:
 	find_pivots_and_enemies()
 	set_pivots_offsets()
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -78,7 +77,6 @@ func get_currect_state():
 func get_state_from_raycast() -> States:
 	var collider = raycast.get_collider()
 	if collider:
-		print(collider.name)
 		if collider is SquadArea:
 			return States.STACKED
 		elif collider is CombatZone:
@@ -165,5 +163,5 @@ func clear_dead_enemies():
 
 
 func defeat():
-	defeated.emit()
+	defeated.emit(self)
 	queue_free()

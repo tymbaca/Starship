@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/Army/Squad.gd" id="1_lednl"]
 [ext_resource type="Script" path="res://scenes/Army/SquadArea.gd" id="2_wbcv4"]
 
-[node name="BaseSquad" type="Node2D" node_paths=PackedStringArray("squad_area", "raycast")]
+[node name="BaseSquad" type="Node2D" node_paths=PackedStringArray("squad_area", "raycast") groups=["squad"]]
 position = Vector2(-1, 1)
 script = ExtResource("1_lednl")
 vertical_speed = 30.0

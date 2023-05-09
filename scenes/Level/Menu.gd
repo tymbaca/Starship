@@ -1,16 +1,12 @@
 extends Control
-class_name DeathMenu
+class_name Menu
 
 @export var player: Player
-@onready var background := $Background
-@onready var retry_button := $Button
-@onready var level: Level
+@onready var level: Level = Settings.current_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player.player_dead.connect(visibility_on)
 	modulate.a = 0
-	level = $"../Level"
 	pass # Replace with function body.
 
 

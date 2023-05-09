@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj8yol428sb0b"]
+
+[ext_resource type="Texture2D" uid="uid://cnt218c40ubm3" path="res://scenes/Level/Retry-icon.png" id="1_3276u"]
+[ext_resource type="Script" path="res://scenes/Level/Button.gd" id="2_02g6c"]
+
+[node name="Button" type="Button"]
+offset_left = 153.0
+offset_top = 242.0
+offset_right = 224.0
+offset_bottom = 273.0
+text = "Retry"
+icon = ExtResource("1_3276u")
+expand_icon = true
+script = ExtResource("2_02g6c")

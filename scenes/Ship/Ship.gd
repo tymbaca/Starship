@@ -2,6 +2,7 @@
 extends CharacterBody2D
 class_name Ship
 
+signal dead(ship: Ship)
 
 @export var max_health: int = 3
 @export var destroy_effect_scene: PackedScene
@@ -27,6 +28,7 @@ func take_damage(damage: int):
 func die():
 	queue_free()
 	emit_destroy_effect()
+	dead.emit(self)
 
 func emit_destroy_effect():
 	var effect: Node2D = destroy_effect_scene.instantiate()

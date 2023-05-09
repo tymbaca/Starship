@@ -1,6 +1,7 @@
 class_name Enemy
 extends Ship
 
+signal enemy_dead(enemy: Enemy)
 
 enum States {
 	IDLE,
@@ -18,3 +19,7 @@ func _process(delta: float) -> void:
 			pass
 		States.FIRING:
 			weapon.fire()
+
+func die():
+	super.die()
+	enemy_dead.emit(self)

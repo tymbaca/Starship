@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://h75f6dwrvy3x"]
+
+[ext_resource type="Script" path="res://scenes/Level/win_menu.gd" id="1_t6ufa"]
+[ext_resource type="PackedScene" uid="uid://bj8yol428sb0b" path="res://scenes/UI/retry_button.tscn" id="2_r1ho5"]
+
+[node name="WinMenu" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t6ufa")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00392157, 0.109804, 0.027451, 0.0196078)
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 156.0
+offset_top = 51.0
+offset_right = 259.0
+offset_bottom = 77.0
+text = "Enemy killed:"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+offset_left = 156.0
+offset_top = 76.0
+offset_right = 259.0
+offset_bottom = 102.0
+text = "0
+"
+
+[node name="Button" parent="." instance=ExtResource("2_r1ho5")]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 214.0
+offset_right = 237.0
+offset_bottom = 245.0

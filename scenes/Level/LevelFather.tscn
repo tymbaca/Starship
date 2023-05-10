@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://h75f6dwrvy3x" path="res://scenes/Level/win_menu.tscn" id="2_l3h4s"]
 [ext_resource type="Script" path="res://scenes/Level/Level.gd" id="2_swck0"]
 [ext_resource type="PackedScene" uid="uid://dhgvy0gslmkki" path="res://scenes/Player/player.tscn" id="3_s310s"]
-[ext_resource type="PackedScene" uid="uid://8h51bwubs0o8" path="res://scenes/Army/wave_squad.tscn" id="5_0bygg"]
 [ext_resource type="Script" path="res://scenes/Level/Menu.gd" id="5_its8b"]
 [ext_resource type="Script" path="res://scenes/Level/CombatZone.gd" id="6_8kq4t"]
 [ext_resource type="Script" path="res://scenes/Level/SafeZone.gd" id="7_xk5od"]
+[ext_resource type="PackedScene" uid="uid://b7juu6w3om2k4" path="res://scenes/Army/cotner_wave_squad.tscn" id="8_kiwt1"]
 [ext_resource type="PackedScene" uid="uid://bj8yol428sb0b" path="res://scenes/UI/retry_button.tscn" id="10_m3fmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owpca"]
@@ -34,8 +34,20 @@ player = NodePath("Player")
 [node name="Background" parent="Level" instance=ExtResource("2_cn6n0")]
 position = Vector2(-4, -19)
 scale = Vector2(0.675, 0.675)
+metadata/_edit_lock_ = true
 
-[node name="WaveArmy" parent="Level" instance=ExtResource("5_0bygg")]
+[node name="Squads" type="Node2D" parent="Level"]
+
+[node name="CotnerWaveArmy" parent="Level/Squads" instance=ExtResource("8_kiwt1")]
+
+[node name="CotnerWaveArmy2" parent="Level/Squads" instance=ExtResource("8_kiwt1")]
+position = Vector2(-1, -242)
+
+[node name="CotnerWaveArmy3" parent="Level/Squads" instance=ExtResource("8_kiwt1")]
+position = Vector2(-1, -485)
+
+[node name="CotnerWaveArmy2" parent="Level/Squads/CotnerWaveArmy3" instance=ExtResource("8_kiwt1")]
+position = Vector2(-1, -242)
 
 [node name="Player" parent="Level" instance=ExtResource("3_s310s")]
 process_priority = 2
@@ -46,24 +58,30 @@ god_mode = true
 
 [node name="CombatZone" type="Area2D" parent="Level"]
 script = ExtResource("6_8kq4t")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/CombatZone"]
 position = Vector2(201.5, 104)
 shape = SubResource("RectangleShape2D_owpca")
 debug_color = Color(0.862745, 0.360784, 0, 0.227451)
+metadata/_edit_lock_ = true
 
 [node name="SafeZone" type="Area2D" parent="Level"]
 position = Vector2(0, 210)
 script = ExtResource("7_xk5od")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/SafeZone"]
 position = Vector2(201.5, 46.5)
 shape = SubResource("RectangleShape2D_5d71t")
+metadata/_edit_lock_ = true
 
 [node name="Walls" type="Node2D" parent="Level"]
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Walls"]
 position = Vector2(-3, 179)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Walls/StaticBody2D"]
 shape = SubResource("RectangleShape2D_keyjd")
@@ -71,6 +89,7 @@ debug_color = Color(0, 0.0196078, 0.027451, 0.419608)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Level/Walls"]
 position = Vector2(402, 192)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Walls/StaticBody2D2"]
 shape = SubResource("RectangleShape2D_keyjd")

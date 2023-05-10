@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhi36d0bd50tm"]
+
+[ext_resource type="Script" path="res://scenes/Level/Level.gd" id="1_nbblq"]
+[ext_resource type="PackedScene" path="res://scenes/Background/background.tscn" id="2_c4sga"]
+[ext_resource type="PackedScene" uid="uid://8h51bwubs0o8" path="res://scenes/Army/wave_squad.tscn" id="3_32lvb"]
+[ext_resource type="PackedScene" uid="uid://dhgvy0gslmkki" path="res://scenes/Player/player.tscn" id="4_8vv8f"]
+[ext_resource type="Script" path="res://scenes/Level/CombatZone.gd" id="5_a4ynl"]
+[ext_resource type="Script" path="res://scenes/Level/SafeZone.gd" id="6_ag6e7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owpca"]
+size = Vector2(389, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5d71t"]
+size = Vector2(403, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_keyjd"]
+size = Vector2(20, 424)
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("combat_zone", "safe_zone", "player") groups=["level"]]
+script = ExtResource("1_nbblq")
+combat_zone = NodePath("CombatZone")
+safe_zone = NodePath("SafeZone")
+player = NodePath("Player")
+
+[node name="Background" parent="." instance=ExtResource("2_c4sga")]
+position = Vector2(-4, -19)
+scale = Vector2(0.675, 0.675)
+
+[node name="Squads" type="Node2D" parent="."]
+
+[node name="WaveArmy" parent="Squads" instance=ExtResource("3_32lvb")]
+
+[node name="Player" parent="." instance=ExtResource("4_8vv8f")]
+process_priority = 2
+position = Vector2(186, 248)
+rotation = -1.57079
+max_health = 5
+god_mode = true
+
+[node name="CombatZone" type="Area2D" parent="."]
+script = ExtResource("5_a4ynl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatZone"]
+position = Vector2(201.5, 104)
+shape = SubResource("RectangleShape2D_owpca")
+debug_color = Color(0.862745, 0.360784, 0, 0.227451)
+
+[node name="SafeZone" type="Area2D" parent="."]
+position = Vector2(0, 210)
+script = ExtResource("6_ag6e7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeZone"]
+position = Vector2(201.5, 46.5)
+shape = SubResource("RectangleShape2D_5d71t")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+position = Vector2(-3, 179)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+shape = SubResource("RectangleShape2D_keyjd")
+debug_color = Color(0, 0.0196078, 0.027451, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+position = Vector2(402, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_keyjd")
+debug_color = Color(0, 0.027451, 0.0392157, 0.419608)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgmgiarhi1gdp"]
+
+[ext_resource type="Texture2D" uid="uid://ddunownfvojn6" path="res://images/Player-idle1.png" id="1_s3qmp"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuButton" type="MenuButton" parent="MenuBar"]
+offset_right = 48.0
+offset_bottom = 31.0
+text = "Hello"
+icon = ExtResource("1_s3qmp")
+
+[node name="MenuButton2" type="MenuButton" parent="MenuBar"]
+offset_left = 11.0
+offset_top = 45.0
+offset_right = 64.0
+offset_bottom = 76.0
+text = "world"
+switch_on_hover = true

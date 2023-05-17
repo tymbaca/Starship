@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://nnp4a16g3n0j"]
+[gd_scene load_steps=19 format=3 uid="uid://nnp4a16g3n0j"]
 
 [ext_resource type="Texture2D" uid="uid://bl7sligpyilvq" path="res://scenes/Ship/Ship.png" id="1"]
 [ext_resource type="Script" path="res://scenes/Ship/Mover.gd" id="2"]
@@ -7,12 +7,24 @@
 [ext_resource type="PackedScene" uid="uid://oytg3khefi57" path="res://scenes/Effect/dash_effect.tscn" id="5_kpcq0"]
 [ext_resource type="Script" path="res://scenes/Ship/Weapon.gd" id="5_u5ule"]
 [ext_resource type="PackedScene" path="res://scenes/Effect/DestroyEffect.tscn" id="6"]
+[ext_resource type="AudioStream" uid="uid://cwalviuo186rp" path="res://scenes/Ship/sounds/shoot1.wav" id="8_i5nqs"]
+[ext_resource type="AudioStream" uid="uid://ceumad0kuc6ib" path="res://scenes/Ship/sounds/shoot2.wav" id="9_ih288"]
+[ext_resource type="AudioStream" uid="uid://cildy7gv7ru5m" path="res://scenes/Ship/sounds/shoot3.wav" id="10_0nfa5"]
+[ext_resource type="Script" path="res://scenes/Ship/AudioStreamPlayer2D.gd" id="11_21eh5"]
+[ext_resource type="AudioStream" uid="uid://tcqniuvtjtf5" path="res://scenes/Ship/sounds/hit1.wav" id="12_x477a"]
+[ext_resource type="AudioStream" uid="uid://bapcs8q0y2etg" path="res://scenes/Ship/sounds/hit2.wav" id="13_n0v2p"]
+[ext_resource type="AudioStream" uid="uid://bu8tmx2g1s5qp" path="res://scenes/Ship/sounds/hit3.wav" id="14_6l4b3"]
+[ext_resource type="AudioStream" uid="uid://tlc2hwo0y0uj" path="res://scenes/Ship/sounds/destroy1.wav" id="15_aff2l"]
+[ext_resource type="AudioStream" uid="uid://brrjto3v2bqds" path="res://scenes/Ship/sounds/destroy2.wav" id="16_qlwqa"]
+[ext_resource type="AudioStream" uid="uid://utc00gj0vx1b" path="res://scenes/Ship/sounds/destroy3.wav" id="17_5qb7n"]
 
 [sub_resource type="CanvasItemMaterial" id="1"]
 
-[node name="Ship" type="CharacterBody2D"]
+[node name="Ship" type="CharacterBody2D" node_paths=PackedStringArray("hit_audio_player", "destroy_audio_player")]
 script = ExtResource("5")
 destroy_effect_scene = ExtResource("6")
+hit_audio_player = NodePath("HitAudioPlayer")
+destroy_audio_player = NodePath("DestroyAudioPlayer")
 
 [node name="BodyCollider" type="CollisionPolygon2D" parent="."]
 rotation = 1.57079
@@ -28,15 +40,29 @@ script = ExtResource("2")
 dash_time = 0.6
 dash_effect_scene = ExtResource("5_kpcq0")
 
-[node name="Weapon" type="Node2D" parent="."]
+[node name="Weapon" type="Node2D" parent="." node_paths=PackedStringArray("audio_player")]
 position = Vector2(15, 0)
 rotation = 1.57079
 script = ExtResource("5_u5ule")
 bullet_scene = ExtResource("4")
 reloading_speed = 0.2
+audio_player = NodePath("ShootAudioPlayer")
+
+[node name="ShootAudioPlayer" type="AudioStreamPlayer2D" parent="Weapon"]
+script = ExtResource("11_21eh5")
+streams = Array[AudioStream]([ExtResource("8_i5nqs"), ExtResource("9_ih288"), ExtResource("10_0nfa5")])
 
 [node name="Area2D" type="Area2D" parent="."]
 rotation = 1.57079
 
 [node name="BulletDetector" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
+
+[node name="HitAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("11_21eh5")
+streams = Array[AudioStream]([ExtResource("12_x477a"), ExtResource("13_n0v2p"), ExtResource("14_6l4b3")])
+
+[node name="DestroyAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+volume_db = 7.695
+script = ExtResource("11_21eh5")
+streams = Array[AudioStream]([ExtResource("15_aff2l"), ExtResource("16_qlwqa"), ExtResource("17_5qb7n")])

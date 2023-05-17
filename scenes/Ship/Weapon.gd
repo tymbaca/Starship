@@ -6,6 +6,8 @@ extends Node2D
 @export var reloading_speed: float = 1  # In seconds
 @export var bullet_damage: int = 1
 
+@export var audio_player: RandomAudioStreamPlayer2D
+
 var current_reloading_progress: float = reloading_speed
 var is_ready: bool = true
 var is_firing
@@ -23,6 +25,8 @@ func _process(delta):
 		bullet.global_rotation = global_rotation
 		bullet.global_position = global_position
 		bullet.damage = bullet_damage
+		
+		audio_player._play()
 
 		is_ready = false
 		current_reloading_progress = 0

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj8yol428sb0b"]
+[gd_scene load_steps=5 format=3 uid="uid://bj8yol428sb0b"]
 
 [ext_resource type="Texture2D" uid="uid://cnt218c40ubm3" path="res://scenes/Level/Retry-icon.png" id="1_3276u"]
 [ext_resource type="Script" path="res://scenes/Level/Button.gd" id="2_02g6c"]
+[ext_resource type="Script" path="res://scenes/Ship/AudioStreamPlayer2D.gd" id="3_eyoc0"]
+[ext_resource type="AudioStream" uid="uid://hver5u020p3j" path="res://scenes/UI/sounds/click.wav" id="4_alhn1"]
 
-[node name="Button" type="Button"]
+[node name="Button" type="Button" node_paths=PackedStringArray("sound_player")]
 offset_left = 153.0
 offset_top = 242.0
 offset_right = 224.0
@@ -12,3 +14,8 @@ text = "Retry"
 icon = ExtResource("1_3276u")
 expand_icon = true
 script = ExtResource("2_02g6c")
+sound_player = NodePath("RandomAudioStreamPlayer2D")
+
+[node name="RandomAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("3_eyoc0")
+streams = Array[AudioStreamWAV]([ExtResource("4_alhn1")])

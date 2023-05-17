@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgmgiarhi1gdp"]
+[gd_scene load_steps=4 format=3 uid="uid://dgmgiarhi1gdp"]
 
-[ext_resource type="Texture2D" uid="uid://ddunownfvojn6" path="res://images/Player-idle1.png" id="1_s3qmp"]
+[sub_resource type="Gradient" id="Gradient_quiw6"]
+offsets = PackedFloat32Array(0.93913, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e6a5n"]
+noise_type = 3
+seed = 9
+frequency = 0.025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tnkuy"]
+color_ramp = SubResource("Gradient_quiw6")
+noise = SubResource("FastNoiseLite_e6a5n")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,21 +20,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuBar" type="MenuBar" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MenuButton" type="MenuButton" parent="MenuBar"]
-offset_right = 48.0
-offset_bottom = 31.0
-text = "Hello"
-icon = ExtResource("1_s3qmp")
-
-[node name="MenuButton2" type="MenuButton" parent="MenuBar"]
-offset_left = 11.0
-offset_top = 45.0
-offset_right = 64.0
-offset_bottom = 76.0
-text = "world"
-switch_on_hover = true
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_tnkuy")

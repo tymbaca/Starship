@@ -50,7 +50,7 @@ audio_player = NodePath("ShootAudioPlayer")
 
 [node name="ShootAudioPlayer" type="AudioStreamPlayer2D" parent="Weapon"]
 script = ExtResource("11_21eh5")
-streams = Array[AudioStream]([ExtResource("8_i5nqs"), ExtResource("9_ih288"), ExtResource("10_0nfa5")])
+streams = Array[AudioStreamWAV]([ExtResource("8_i5nqs"), ExtResource("9_ih288"), ExtResource("10_0nfa5")])
 
 [node name="Area2D" type="Area2D" parent="."]
 rotation = 1.57079
@@ -60,9 +60,9 @@ polygon = PackedVector2Array(0, -10, -10, 10, 10, 10)
 
 [node name="HitAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 script = ExtResource("11_21eh5")
-streams = Array[AudioStream]([ExtResource("12_x477a"), ExtResource("13_n0v2p"), ExtResource("14_6l4b3")])
+streams = Array[AudioStreamWAV]([ExtResource("12_x477a"), ExtResource("13_n0v2p"), ExtResource("14_6l4b3")])
 
 [node name="DestroyAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 volume_db = 7.695
 script = ExtResource("11_21eh5")
-streams = Array[AudioStream]([ExtResource("15_aff2l"), ExtResource("16_qlwqa"), ExtResource("17_5qb7n")])
+streams = Array[AudioStreamWAV]([ExtResource("15_aff2l"), ExtResource("16_qlwqa"), ExtResource("17_5qb7n")])
